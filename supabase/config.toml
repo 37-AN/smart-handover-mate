@@ -2,3 +2,6 @@ project_id = "mbyvnmkhoejkjavwkynj"
 
 [functions.ai-assistant]
 verify_jwt = false
+
+[functions.parse-downtime-report]
+verify_jwt = false

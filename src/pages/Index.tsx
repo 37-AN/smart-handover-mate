@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ClipboardList, AlertCircle, MessageSquare, LayoutDashboard } from "lucide-react";
+import { ClipboardList, AlertCircle, MessageSquare, LayoutDashboard, FileSpreadsheet } from "lucide-react";
 import Dashboard from "@/components/Dashboard";
 import HandoverForm from "@/components/HandoverForm";
 import IssueTracker from "@/components/IssueTracker";
 import AIAssistant from "@/components/AIAssistant";
+import DowntimeUploader from "@/components/DowntimeUploader";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -33,7 +34,7 @@ const Index = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-6">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:inline-grid">
+          <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:inline-grid">
             <TabsTrigger value="dashboard" className="flex items-center gap-2">
               <LayoutDashboard className="h-4 w-4" />
               <span className="hidden sm:inline">Dashboard</span>
@@ -45,6 +46,10 @@ const Index = () => {
             <TabsTrigger value="issues" className="flex items-center gap-2">
               <AlertCircle className="h-4 w-4" />
               <span className="hidden sm:inline">Issue Tracker</span>
+            </TabsTrigger>
+            <TabsTrigger value="uploader" className="flex items-center gap-2">
+              <FileSpreadsheet className="h-4 w-4" />
+              <span className="hidden sm:inline">Upload Report</span>
             </TabsTrigger>
             <TabsTrigger value="ai" className="flex items-center gap-2">
               <MessageSquare className="h-4 w-4" />
@@ -62,6 +67,10 @@ const Index = () => {
 
           <TabsContent value="issues" className="space-y-6">
             <IssueTracker />
+          </TabsContent>
+
+          <TabsContent value="uploader" className="space-y-6">
+            <DowntimeUploader />
           </TabsContent>
 
           <TabsContent value="ai" className="space-y-6">
